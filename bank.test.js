@@ -5,7 +5,7 @@ describe("Bank", () => {
 
   jest
     .useFakeTimers()
-    .setSystemTime(new Date("2030-12-30").toLocaleDateString("en-UK"));
+    .setSystemTime(new Date(1924819200000).toLocaleDateString("en-UK"));
 
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);

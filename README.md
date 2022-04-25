@@ -30,7 +30,7 @@
 - `getBalance()` to get a current balance figure
 - `printStatement()` to print an up-to-date bank statement
 
-## Functionality
+## Features
 
 - Deposits
 - Withdrawal

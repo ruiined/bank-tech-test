@@ -40,6 +40,8 @@
 
 Following the TDD process, I started with writing basic tests, and passing them as I go. Once the basic functionality was written & tested, I refactored it to be less repetitive and more efficient instead.
 
+Mainly, I chose to combine methods "deposit" and "withdraw" into one, as it would get rid of the repetition and prevent additional errors from arising (e.g. depositing a negative amount).
+
 My next step was adding the edge cases. I wrote all the tests that came to my mind (invalid amount entered, withdrawing more than what the balance permits, etc.) and moved on to implementing it.
 
 Once the bank was functioning as desired, it was time to create a statement printer, following the [task](https://github.com/makersacademy/course/blob/main/individual_challenges/bank_tech_test.md)'s requirements:

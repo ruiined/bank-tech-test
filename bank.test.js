@@ -3,6 +3,12 @@ const Bank = require("./bank.js");
 describe("Bank", () => {
   const bank = new Bank();
 
+  let mockDate;
+
+  beforeAll(() => {
+    mockDate = { date: "30/12/2030" };
+  });
+
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);
     expect(bank.getTransactions()).toEqual([]);
@@ -19,12 +25,17 @@ describe("Bank", () => {
   });
 
   it("stores the transactions with time and balance", () => {
-    const dateNowStub = () => 1530518207007;
-    global.Date.now = dateNowStub;
-
     expect(bank.getTransactions()).toEqual([
-      { date: dateNowStub, debit: 500, balance: 500 },
-      { date: dateNowStub, credit: 200, balance: 300 },
+      {
+        date: new Date().toLocaleDateString("en-UK"),
+        debit: 500,
+        balance: 500,
+      },
+      {
+        date: new Date().toLocaleDateString("en-UK"),
+        credit: 200,
+        balance: 300,
+      },
     ]);
   });
 });

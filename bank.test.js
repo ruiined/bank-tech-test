@@ -3,10 +3,6 @@ const Bank = require("./bank.js");
 describe("Bank", () => {
   const bank = new Bank();
 
-  jest
-    .useFakeTimers()
-    .setSystemTime(new Date(1924819200000).toLocaleDateString("en-UK"));
-
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);
     expect(bank.getTransactions()).toEqual([]);
@@ -23,6 +19,10 @@ describe("Bank", () => {
   });
 
   it("stores the transactions with time and balance", () => {
+    jest
+      .spyOn(global, "Date")
+      .mockImplementationOnce(() => new Date(1924819200000));
+
     expect(bank.getTransactions()).toEqual([
       { date: "30/12/2030", debit: 500, balance: 500 },
       { date: "30/12/2030", credit: 200, balance: 300 },

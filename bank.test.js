@@ -1,7 +1,7 @@
-Bank = require("./bank.js");
+const Bank = require("./bank.js");
 
 describe("Bank", () => {
-  bank = new Bank();
+  const bank = new Bank();
 
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);
@@ -9,12 +9,12 @@ describe("Bank", () => {
   });
 
   it("deposits", () => {
-    bank.deposit(500);
+    bank.makeTransaction(500);
     expect(bank.getBalance()).toBe(500);
   });
 
   it("withdraws", () => {
-    bank.withdraw(200);
+    bank.makeTransaction(-200);
     expect(bank.getBalance()).toBe(300);
   });
 
@@ -25,3 +25,19 @@ describe("Bank", () => {
     ]);
   });
 });
+
+// describe("Edge cases", () => {
+//   const bank = new Bank()
+
+//   it("only takes integers as an amount", () => {
+
+//   })
+
+//   it("doesn't record 0 as a valid transaction", () => {
+
+//   })
+
+//   it("throws an error when trying to withdraw more than what the balance allows", () => {
+
+//   })
+// })

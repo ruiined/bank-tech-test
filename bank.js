@@ -12,20 +12,16 @@ class Bank {
     return this.transactions;
   }
 
-  deposit(money) {
-    this.balance += money;
-    this.transactions.push({
-      date: new Date().toLocaleDateString("en-UK"),
-      debit: money,
-      balance: this.balance,
-    });
+  makeTransaction(amount) {
+    const type = (amount > 0) ? "debit" : "credit";
+    this.balance += amount
+    this._processTransaction(type, amount);
   }
 
-  withdraw(money) {
-    this.balance -= money;
+  _processTransaction(type, amount) {
     this.transactions.push({
       date: new Date().toLocaleDateString("en-UK"),
-      credit: money,
+      [`${type}`]: Math.abs(amount),
       balance: this.balance,
     });
   }

@@ -2,7 +2,7 @@
 
 ## Overview
 
-<!-- ~ Workflow badge ~ -->
+[![Tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml)
 
 <!-- ~ Codecov Badge ~ -->
 

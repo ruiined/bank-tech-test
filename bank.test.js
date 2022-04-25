@@ -3,6 +3,10 @@ const Bank = require("./bank.js");
 describe("Bank", () => {
   const bank = new Bank();
 
+  jest
+  .useFakeTimers()
+  .setSystemTime(new Date('2030-01-01'))
+
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);
     expect(bank.getTransactions()).toEqual([]);
@@ -20,8 +24,8 @@ describe("Bank", () => {
 
   it("stores the transactions with time and balance", () => {
     expect(bank.getTransactions()).toEqual([
-      { date: "25/04/2022", debit: 500, balance: 500 },
-      { date: "25/04/2022", credit: 200, balance: 300 },
+      { date: "01/01/2030", debit: 500, balance: 500 },
+      { date: "01/01/2030", credit: 200, balance: 300 },
     ]);
   });
 });

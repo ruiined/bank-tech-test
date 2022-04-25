@@ -11,14 +11,17 @@ describe("Bank", () => {
   it("deposits", () => {
     bank.deposit(500);
     expect(bank.getBalance()).toBe(500);
-    expect(bank.getTransactions()).toEqual([500]);
   });
 
   it("withdraws", () => {
     bank.withdraw(200);
     expect(bank.getBalance()).toBe(300);
-    expect(bank.getTransactions()).toEqual([500, -200]);
   });
 
-  it('stores transactions')
+  it("stores the transactions with time and balance", () => {
+    expect(bank.getTransactions()).toEqual([
+      { date: "25/04/2022", debit: 500, balance: 500 },
+      { date: "25/04/2022", credit: 200, balance: 300 },
+    ]);
+  });
 });

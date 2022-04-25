@@ -13,19 +13,22 @@ class Bank {
   }
 
   deposit(money) {
-    this.transactions.push(money);
     this.balance += money;
+    this.transactions.push({
+      date: new Date().toLocaleDateString("en-UK"),
+      debit: money,
+      balance: this.balance,
+    });
   }
 
   withdraw(money) {
-    this.transactions.push(-money);
     this.balance -= money;
+    this.transactions.push({
+      date: new Date().toLocaleDateString("en-UK"),
+      credit: money,
+      balance: this.balance,
+    });
   }
-
-  // printStatement() {
-  //   this.transactions.push({ debit: "debit", balance: "balance" });
-  //   return this.transactions.map((tran) => tran);
-  // }
 }
 
 module.exports = Bank;

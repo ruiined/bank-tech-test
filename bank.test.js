@@ -19,9 +19,15 @@ describe("Bank", () => {
   });
 
   it("stores the transactions with time and balance", () => {
-    jest
-      .spyOn(global, "Date")
-      .mockImplementationOnce(() => new Date(1924819200000));
+    const literallyJustDateNow = () => Date.now();
+    const realDateNow = Date.now.bind(global.Date);
+    const dateNowStub = jest.fn(() => 1530518207007);
+    global.Date.now = dateNowStub;
+
+    expect(literallyJustDateNow()).toBe(1530518207007);
+    expect(dateNowStub).toHaveBeenCalled();
+
+    global.Date.now = realDateNow;
 
     expect(bank.getTransactions()).toEqual([
       { date: "30/12/2030", debit: 500, balance: 500 },

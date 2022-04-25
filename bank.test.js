@@ -2,12 +2,7 @@ const Bank = require("./bank.js");
 
 describe("Bank", () => {
   const bank = new Bank();
-
-  let mockDate;
-
-  beforeAll(() => {
-    mockDate = { date: "30/12/2030" };
-  });
+  const dateToday = new Date().toLocaleDateString("en-UK");
 
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.getBalance()).toBe(0);
@@ -27,12 +22,12 @@ describe("Bank", () => {
   it("stores the transactions with time and balance", () => {
     expect(bank.getTransactions()).toEqual([
       {
-        date: new Date().toLocaleDateString("en-UK"),
+        date: dateToday,
         debit: 500,
         balance: 500,
       },
       {
-        date: new Date().toLocaleDateString("en-UK"),
+        date: dateToday,
         credit: 200,
         balance: 300,
       },
@@ -40,18 +35,31 @@ describe("Bank", () => {
   });
 });
 
-// describe("Edge cases", () => {
-//   const bank = new Bank()
+describe("Edge cases", () => {
+  const bank = new Bank();
+  const amountError = "Invalid amount entered";
 
-//   it("only takes integers as an amount", () => {
+  it("only takes positive or negative integers as an amount", () => {
+    expect(() => {
+      bank.makeTransaction(0);
+    }).toThrow(amountError);
+    expect(() => {
+      bank.makeTransaction("String");
+    }).toThrow(amountError);
+    expect(() => {
+      bank.makeTransaction({ Object });
+    }).toThrow(amountError);
+    expect(() => {
+      bank.makeTransaction();
+    }).toThrow(amountError);
+    expect(() => {
+      bank.makeTransaction(true);
+    }).toThrow(amountError);
+  });
 
-//   })
-
-//   it("doesn't record 0 as a valid transaction", () => {
-
-//   })
-
-//   it("throws an error when trying to withdraw more than what the balance allows", () => {
-
-//   })
-// })
+  it("throws an error when trying to withdraw more than what the balance allows", () => {
+    expect(() => {
+      bank.makeTransaction(-30);
+    }).toThrow("Insufficient balance");
+  });
+});

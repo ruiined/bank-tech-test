@@ -4,8 +4,8 @@
 
 [![tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/ruiined/bank-tech-test/branch/main/graph/badge.svg?token=M8FARJY8DO)](https://codecov.io/gh/ruiined/bank-tech-test)
-
-<!-- ~ Dependencies ~ -->
+![nodejs](https://img.shields.io/badge/--yellow?logo=npm)
+![jest](https://img.shields.io/badge/--red?logo=jest)
 
 ## Instructions
 
@@ -33,7 +33,10 @@
 
 - Deposits
 - Withdrawal
-- Account statement (date, amount, balance) printing
+- Account statement
+  - date
+  - amount
+  - balance
 
 ## Coding process
 

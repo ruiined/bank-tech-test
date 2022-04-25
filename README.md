@@ -6,6 +6,12 @@
 ![nodejs](https://img.shields.io/badge/npm-8.7-blue?logo=npm)
 ![jest](https://img.shields.io/badge/jest-28.0-blue?logo=jest)
 
+## Overview
+
+Simple NodeJS application that's interactive through Node.
+
+Create a bank account, deposit and withdraw, view the balance and print an up to date bank statements (date, credit/debit, balance)
+
 ## Instructions
 
 #### How to Install
@@ -19,8 +25,9 @@
 
 #### How to Run
 
-- `node bank.js` to enter REPL
-- `const myBank = new Bank()` to create a new bank account
+- `node` to enter REPL
+- `.load ./bank.js` to load the nodejs file
+- `myBank = new Bank()` to create a new bank account
 - `makeTransaction(amount)`
   - it's a deposit if the amount is positive
   - it's a withdrawal if the amount is negative

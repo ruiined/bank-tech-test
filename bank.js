@@ -13,8 +13,9 @@ class Bank {
   }
 
   makeTransaction(amount) {
-    const type = (amount > 0) ? "debit" : "credit";
-    this.balance += amount
+    this._checkForErrors(amount);
+    const type = amount > 0 ? "debit" : "credit";
+    this.balance += amount;
     this._processTransaction(type, amount);
   }
 
@@ -24,6 +25,12 @@ class Bank {
       [`${type}`]: Math.abs(amount),
       balance: this.balance,
     });
+  }
+
+  _checkForErrors(amount) {
+    if (!Number.isInteger(amount) || amount === 0)
+      throw "Invalid amount entered";
+    if (amount < 0 && this.balance < -amount) throw "Insufficient balance";
   }
 }
 

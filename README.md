@@ -2,7 +2,7 @@
 
 ## Overview
 
-[![Tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml)
+[![tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/ruiined/bank-tech-test/branch/main/graph/badge.svg?token=M8FARJY8DO)](https://codecov.io/gh/ruiined/bank-tech-test)
 
 <!-- ~ Dependencies ~ -->

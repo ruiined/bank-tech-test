@@ -35,7 +35,7 @@ describe("Bank", () => {
   });
 });
 
-describe("Edge cases", () => {
+describe("Edge Cases", () => {
   const bank = new Bank();
   const amountError = "Invalid amount entered";
 
@@ -57,7 +57,7 @@ describe("Edge cases", () => {
     }).toThrow(amountError);
   });
 
-  it("throws an error when trying to withdraw more than what the balance allows", () => {
+  it("throws an error when trying to withdraw more than what the balance is", () => {
     expect(() => {
       bank.makeTransaction(-30);
     }).toThrow("Insufficient balance");

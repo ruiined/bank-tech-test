@@ -1,5 +1,8 @@
+const Printer = require("./printer.js");
+
 class Bank {
-  constructor() {
+  constructor(printer = new Printer()) {
+    this.printer = printer;
     this.balance = 0;
     this.transactions = [];
   }
@@ -17,6 +20,10 @@ class Bank {
     const type = amount > 0 ? "debit" : "credit";
     this.balance += amount;
     this._processTransaction(type, amount);
+  }
+
+  printStatement() {
+    console.log(this.printer.print(this.transactions));
   }
 
   _processTransaction(type, amount) {

@@ -1,7 +1,19 @@
 const Bank = require("./bank.js");
+const Printer = require("./printer");
+
+const mockPrint = jest.fn();
+
+jest.mock("./printer", () => {
+  return jest.fn().mockImplementation(() => {
+    return {
+      print: mockPrint,
+    };
+  });
+});
 
 describe("Bank", () => {
   const bank = new Bank();
+  const printer = new Printer();
   const dateToday = new Date().toLocaleDateString("en-UK");
 
   it("starts off with an empty balance and no transactions", () => {
@@ -32,6 +44,11 @@ describe("Bank", () => {
         balance: 300,
       },
     ]);
+  });
+
+  it("prints the bank statement", () => {
+    bank.printStatement();
+    expect(printer.print).toHaveBeenCalledTimes(1);
   });
 });
 

@@ -1,9 +1,9 @@
-const Bank = require("./bank.js");
-const Printer = require("./printer");
+const Bank = require("../src/bank");
+const Printer = require("../src/printer");
 
 const mockPrint = jest.fn();
 
-jest.mock("./printer", () => {
+jest.mock("../src/printer", () => {
   return jest.fn().mockImplementation(() => {
     return {
       print: mockPrint,

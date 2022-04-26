@@ -1,4 +1,4 @@
-const Printer = require("./printer.js");
+const Printer = require("../src/printer");
 
 describe("Printer", () => {
   const printer = new Printer();

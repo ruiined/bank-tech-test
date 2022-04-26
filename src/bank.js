@@ -1,4 +1,4 @@
-const Printer = require("./printer.js");
+const Printer = require("./printer");
 
 class Bank {
   constructor(printer = new Printer()) {

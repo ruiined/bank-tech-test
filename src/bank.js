@@ -7,14 +7,6 @@ class Bank {
     this.transactions = [];
   }
 
-  getBalance() {
-    return this.balance;
-  }
-
-  getTransactions() {
-    return this.transactions;
-  }
-
   makeTransaction(amount) {
     this._checkForErrors(amount);
     const type = amount > 0 ? "debit" : "credit";

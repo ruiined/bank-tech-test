@@ -33,7 +33,6 @@ Create a bank account, deposit and withdraw, view the balance and print an up to
   - it's a deposit if the amount is positive
   - it's a withdrawal if the amount is negative
   - it's going to throw an error in all the other cases
-- `getBalance()` to get a current balance figure
 - `printStatement()` to print an up-to-date bank statement
 
 ## Features

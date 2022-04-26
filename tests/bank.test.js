@@ -17,22 +17,22 @@ describe("Bank", () => {
   const dateToday = new Date().toLocaleDateString("en-UK");
 
   it("starts off with an empty balance and no transactions", () => {
-    expect(bank.getBalance()).toBe(0);
-    expect(bank.getTransactions()).toEqual([]);
+    expect(bank.balance).toBe(0);
+    expect(bank.transactions).toEqual([]);
   });
 
   it("deposits", () => {
     bank.makeTransaction(500);
-    expect(bank.getBalance()).toBe(500);
+    expect(bank.balance).toBe(500);
   });
 
   it("withdraws", () => {
     bank.makeTransaction(-200);
-    expect(bank.getBalance()).toBe(300);
+    expect(bank.balance).toBe(300);
   });
 
   it("stores the transactions with time and balance", () => {
-    expect(bank.getTransactions()).toEqual([
+    expect(bank.transactions).toEqual([
       {
         date: dateToday,
         debit: 500,

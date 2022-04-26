@@ -3,14 +3,15 @@
 [![tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/ruiined/bank-tech-test/branch/main/graph/badge.svg?token=M8FARJY8DO)](https://codecov.io/gh/ruiined/bank-tech-test)
 
-![nodejs](https://img.shields.io/badge/npm-8.7-blue?logo=npm)
-![jest](https://img.shields.io/badge/jest-28.0-blue?logo=jest)
+![nodejs](https://img.shields.io/badge/npm-8.7.0-blue?logo=npm)
+![jest](https://img.shields.io/badge/jest-28.0.0-blue?logo=jest)
+![eslint](https://img.shields.io/badge/eslint-8.14.0-blue?logo=eslint)
 
 ## Overview
 
 Simple NodeJS application that's interactive through Node.
 
-Create a bank account, deposit and withdraw, view the balance and print an up to date bank statements (date, credit/debit, balance)
+Create a bank account, deposit and withdraw, view the balance and print an up to date bank statement.
 
 ## Instructions
 
@@ -21,7 +22,7 @@ Create a bank account, deposit and withdraw, view the balance and print an up to
 
 #### How to Test
 
-- `npm test` - unit tests & coverage
+- `npm test` - unit tests, coverage and linter
 
 #### How to Run
 

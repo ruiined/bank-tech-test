@@ -1,5 +1,6 @@
 const Bank = require("../src/bank");
 const Printer = require("../src/printer");
+const mockDate = require("jest-date-mock");
 
 const mockPrint = jest.fn();
 
@@ -11,16 +12,17 @@ jest.mock("../src/printer", () => {
   });
 });
 
-const date = new Date("04 Dec 2030 00:12:00 GMT");
+const date = new Date(2030, 0, 0, 0, 0, 0);
 
 describe("Bank", () => {
+  const RealDate = Date;
+
   beforeEach(() => {
-    jest.useFakeTimers("modern");
-    jest.setSystemTime(new Date(date).getTime());
+    mockDate.advanceTo(date);
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    global.Date = RealDate;
   });
 
   const bank = new Bank();

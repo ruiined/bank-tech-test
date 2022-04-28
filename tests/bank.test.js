@@ -15,14 +15,8 @@ jest.mock("../src/printer", () => {
 const date = new Date(2030, 0, 0, 0, 0, 0);
 
 describe("Bank", () => {
-  const RealDate = Date;
-
   beforeEach(() => {
     mockDate.advanceTo(date);
-  });
-
-  afterEach(() => {
-    global.Date = RealDate;
   });
 
   const bank = new Bank();

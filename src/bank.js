@@ -3,33 +3,37 @@ const Printer = require("./printer");
 class Bank {
   constructor(printer = new Printer()) {
     this.printer = printer;
-    this.balance = 0;
     this.transactions = [];
   }
 
   makeTransaction(amount) {
-    this._checkForErrors(amount);
+    this.#checkForErrors(amount);
     const type = amount > 0 ? "debit" : "credit";
-    this.balance += amount;
-    this._processTransaction(type, amount);
+    this.#processTransaction(type, amount);
   }
 
   printStatement() {
     console.log(this.printer.print(this.transactions));
   }
 
-  _processTransaction(type, amount) {
+  #processTransaction(type, amount) {
     this.transactions.push({
       date: new Date(),
       [type]: Math.abs(amount),
-      balance: this.balance,
+      balance: this.#calculateBalance(amount),
     });
   }
 
-  _checkForErrors(amount) {
+  #calculateBalance(amount) {
+    if (this.transactions.length === 0) return amount;
+    return this.transactions[this.transactions.length - 1].balance + amount;
+  }
+
+  #checkForErrors(amount) {
     if (!Number.isInteger(amount) || amount === 0)
       throw "Invalid amount entered";
-    if (amount < 0 && this.balance < -amount) throw "Insufficient balance";
+    if (amount < 0 && this.#calculateBalance(amount) < -amount)
+      throw "Insufficient balance";
   }
 }
 

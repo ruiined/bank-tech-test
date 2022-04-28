@@ -17,6 +17,15 @@ jest.useFakeTimers("modern");
 jest.setSystemTime(new Date(date).getTime());
 
 describe("Bank", () => {
+  beforeEach(() => {
+    jest.useFakeTimers("modern");
+    jest.setSystemTime(new Date(date).getTime());
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   const bank = new Bank();
   const printer = new Printer();
 

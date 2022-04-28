@@ -4,8 +4,7 @@
   "description": "",
   "main": "bank.js",
   "scripts": {
-    "lint": "npx eslint .",
-    "test": "jest --coverage"
+    "test": "npx eslint . && jest --coverage"
   },
   "repository": {
     "type": "git",

@@ -33,6 +33,9 @@
     ],
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
-    }
+    },
+    "verbose": true,
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "src"]
   }
 }

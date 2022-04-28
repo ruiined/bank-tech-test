@@ -18,24 +18,16 @@
   },
   "homepage": "https://github.com/ruiined/bank-tech-test#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
     "eslint": "^8.14.0",
     "jest": "^28.0.0",
     "jest-date-mock": "^1.0.8"
   },
   "dependencies": {
-    "babel-jest": "^28.0.2",
     "eslint-plugin-jest": "^26.1.5"
   },
   "jest": {
     "setupFiles": [
       "jest-date-mock"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx)$": "babel-jest"
-    },
-    "verbose": true,
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules", "src"]
+    ]
   }
 }

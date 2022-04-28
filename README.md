@@ -26,6 +26,7 @@ Create a bank account, deposit and withdraw, view the balance and print an up to
 
 #### How to Run
 
+- `cd src`
 - `node` to enter REPL
 - `.load ./bank.js` to load the nodejs file
 - `myBank = new Bank()` to create a new bank account

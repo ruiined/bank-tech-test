@@ -20,8 +20,8 @@ class Bank {
 
   _processTransaction(type, amount) {
     this.transactions.push({
-      date: new Date().toLocaleDateString("en-UK"),
-      [`${type}`]: Math.abs(amount),
+      date: new Date(),
+      [type]: Math.abs(amount),
       balance: this.balance,
     });
   }

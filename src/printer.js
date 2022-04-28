@@ -1,21 +1,22 @@
 class Printer {
-  print(data) {
+  print(statement) {
     let result = "date || credit || debit || balance";
-    data.reverse().map((transaction) => {
-      result += this._toString(transaction);
+    statement.reverse().map((transaction) => {
+      result += this.#formatTransaction(transaction);
     });
     return result;
   }
 
-  _toString(transaction) {
-    const credit = this._format(transaction.credit);
-    const debit = this._format(transaction.debit);
-    const balance = this._format(transaction.balance);
+  #formatTransaction(transaction) {
+    const credit = this.#formatNumber(transaction.credit);
+    const debit = this.#formatNumber(transaction.debit);
+    const balance = this.#formatNumber(transaction.balance);
+    const date = transaction.date.toLocaleDateString("en-UK");
 
-    return `\n${transaction.date} || ${debit} || ${credit} || ${balance}`;
+    return `\n${date} || ${debit} || ${credit} || ${balance}`;
   }
 
-  _format(number) {
+  #formatNumber(number) {
     return typeof number === "number"
       ? parseFloat(number).toFixed(2)
       : (number = "");

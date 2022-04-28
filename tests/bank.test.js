@@ -14,7 +14,7 @@ jest.mock("../src/printer", () => {
 describe("Bank", () => {
   const bank = new Bank();
   const printer = new Printer();
-  const dateToday = new Date().toLocaleDateString("en-UK");
+  const date = "date";
 
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.balance).toBe(0);
@@ -34,12 +34,12 @@ describe("Bank", () => {
   it("stores the transactions with time and balance", () => {
     expect(bank.transactions).toEqual([
       {
-        date: dateToday,
+        date: date,
         debit: 500,
         balance: 500,
       },
       {
-        date: dateToday,
+        date: date,
         credit: 200,
         balance: 300,
       },

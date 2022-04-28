@@ -13,9 +13,6 @@ jest.mock("../src/printer", () => {
 
 const date = new Date("04 Dec 2030 00:12:00 GMT");
 
-jest.useFakeTimers("modern");
-jest.setSystemTime(new Date(date).getTime());
-
 describe("Bank", () => {
   beforeEach(() => {
     jest.useFakeTimers("modern");

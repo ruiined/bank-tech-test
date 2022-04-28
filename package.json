@@ -19,7 +19,8 @@
   "homepage": "https://github.com/ruiined/bank-tech-test#readme",
   "devDependencies": {
     "eslint": "^8.14.0",
-    "jest": "^28.0.0"
+    "jest": "^28.0.0",
+    "jest-date-mock": "^1.0.8"
   },
   "dependencies": {
     "eslint-plugin-jest": "^26.1.5"

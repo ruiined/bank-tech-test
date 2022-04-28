@@ -8,9 +8,9 @@ describe("Printer", () => {
     const two = { date: new Date(2023, 0, 13), debit: 1000, balance: 3000 };
     const three = { date: new Date(2023, 0, 14), credit: 500, balance: 2500 };
 
-    const bankData = [one, two, three];
+    const bankTransactions = [one, two, three];
 
-    expect(printer.print(bankData)).toEqual(
+    expect(printer.print(bankTransactions)).toEqual(
       "date || credit || debit || balance\n14/01/2023 ||  || 500.00 || 2500.00\n13/01/2023 || 1000.00 ||  || 3000.00\n10/01/2023 || 1000.00 ||  || 1000.00"
     );
   });

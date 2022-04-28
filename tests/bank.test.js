@@ -21,18 +21,17 @@ describe("Bank", () => {
   const printer = new Printer();
 
   it("starts off with an empty balance and no transactions", () => {
-    expect(bank.balance).toBe(0);
     expect(bank.transactions).toEqual([]);
   });
 
   it("deposits", () => {
     bank.makeTransaction(500);
-    expect(bank.balance).toBe(500);
+    expect(bank.transactions[0].balance).toBe(500);
   });
 
   it("withdraws", () => {
     bank.makeTransaction(-200);
-    expect(bank.balance).toBe(300);
+    expect(bank.transactions[1].balance).toBe(300);
   });
 
   it("stores the transactions with time and balance", () => {

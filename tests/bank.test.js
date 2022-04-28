@@ -11,10 +11,14 @@ jest.mock("../src/printer", () => {
   });
 });
 
+const date = new Date("04 Dec 2030 00:12:00 GMT");
+
+jest.useFakeTimers("modern");
+jest.setSystemTime(new Date(date).getTime());
+
 describe("Bank", () => {
   const bank = new Bank();
   const printer = new Printer();
-  const date = "date";
 
   it("starts off with an empty balance and no transactions", () => {
     expect(bank.balance).toBe(0);
@@ -34,12 +38,12 @@ describe("Bank", () => {
   it("stores the transactions with time and balance", () => {
     expect(bank.transactions).toEqual([
       {
-        date: date,
+        date: new Date(date),
         debit: 500,
         balance: 500,
       },
       {
-        date: date,
+        date: new Date(date),
         credit: 200,
         balance: 300,
       },
